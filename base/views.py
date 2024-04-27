@@ -4,8 +4,9 @@ from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-from .models import Room, Topic, Message, User
-from .forms import RoomForm, UserForm, RegistrationForm
+from django.contrib.auth.models import User
+from .models import Room, Topic, Message
+from .forms import RoomForm, RegistrationForm,ProfileForm
 
 
 def login_page(request):
@@ -181,10 +182,10 @@ def delete_message(request, pk):
 @login_required(login_url='login')
 def update_user(request):
     user = request.user
-    form = UserForm(instance=user)
+    form = ProfileForm(instance=user)
 
     if request.method == 'POST':
-        form = UserForm(request.POST, request.FILES, instance=user)
+        form = ProfileForm(request.POST, request.FILES, instance=user)
         if form.is_valid():
             form.save()
             return redirect('user_profile', pk=user.id)

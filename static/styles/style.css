@@ -1257,6 +1257,8 @@ a {
 #nav-bar a {
   color: inherit;
   text-decoration: inherit;
+  left: 15px;
+  font-size: large;
 }
 #nav-bar input[type=checkbox] {
   display: none;
@@ -1271,6 +1273,7 @@ a {
   background: var(--navbar-dark-primary);
   border-radius: 16px;
   z-index: 2;
+  
   display: flex;
   align-items: center;
   transition: width 0.2s;
@@ -1300,7 +1303,7 @@ label[for=nav-toggle] {
   position: relative;
   width: 16px;
   height: 2px;
-  background: var(--navbar-dark-primary);
+  background: var(--navbar-light-primary);
   border-radius: 99px;
   transition: background 0.2s;
 }
