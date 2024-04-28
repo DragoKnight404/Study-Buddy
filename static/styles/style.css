@@ -291,8 +291,8 @@ a {
 }
 
 .header__logo > img {
-  height: 3.2rem;
-  width: 3.2rem;
+  height: 5rem;
+  width: 5rem;
 }
 
 .header__logo > h1 {
@@ -487,19 +487,19 @@ a {
 ================================*/
 
 .form__group {
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
   width: 100%;
 }
 
 .form__split {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .form__group label {
   display: block;
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
 }
 
 .form__group input,
@@ -668,6 +668,8 @@ a {
   background-color: var(--color-dark);
   border-radius: 1rem;
   padding: 2rem;
+  width:100%;
+  
 }
 
 .roomListRoom__header {

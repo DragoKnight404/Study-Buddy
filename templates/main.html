@@ -29,9 +29,15 @@
     </ul> 
     {% endif %}
 
-    {% block content %}
-    <!--Home content-->
-    {% endblock content %}
+    <div>
+      {% block content %}
+      <!--Home content-->
+        <div>
+            <iframe src="" frameborder="0"></iframe>
+        </div>
+      {% endblock content %}
+    </div>
+    
     
     <!--JS Script-->
     <script src="{% static 'js/script.js' %}"></script>

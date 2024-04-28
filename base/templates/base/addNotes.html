@@ -1,0 +1,124 @@
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>AddNotes</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  -- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/quill/quill.snow.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/simple-datatables/style.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+  <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'> 
+  
+</head>
+
+<!--Body container-->
+  <body>
+    
+
+    <!--Navbar container-->
+    {% include 'navbar.html' %}
+    <!-- {% include 'slidebar.html' %} -->
+    
+    <style>
+        .fixed-div {
+            position: fixed;
+            top: 75px;
+            right: 10px;
+            width: 80%;
+            height: 75%;
+            background-color:  --color-dark;
+            padding: 10px;
+        }
+    </style>
+    
+    <div class="fixed-div">
+        <section class="section profile">
+            <div class="row">
+        
+                <div class="col-xl-12">
+        
+                    <div class="card">
+                        <div class="card-body pt-3">
+                            <!-- Bordered Tabs -->
+                            <ul class="nav nav-tabs nav-tabs-bordered">
+        
+                                <li class="nav-item">
+                                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">
+                                        Add Notes
+                                    </button>
+                                </li>
+        
+                            </ul>
+                            <div class="tab-content pt-2">
+        
+                                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                                    <form method="post">
+                                        {% csrf_token %}
+        
+                                        <div class="row mb-3">
+                                           
+                                           <div class="col-md-8 col-lg-11">
+    <input name="Title" type="text" class="form-control" placeholder="Enter Title" style="font-size: 20px;" required>
+</div>
+
+                                        </div>
+        
+                                        <div class="row mb-3">
+                                            
+                                            <div class="col-md-8 col-lg-11">
+                                                <textarea name="Content" class="form-control" style="height: 300px" placeholder="Notes Description" required></textarea>
+                                            </div>
+                                        </div>
+        
+                                        <div class="text-center">
+    <button type="submit" class="btn btn-primary" style="color: black;">Submit</button>
+</div>
+
+                                    </form><!-- End Profile Edit Form -->
+        
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        {% if error == "no" %}
+        <script>
+               alert('New Notes Added Successfully.');
+               window.location=("{% url 'addNotes' %}");
+        </script>   
+        {% endif %}
+        
+        {% if error == "yes" %}
+        <script>
+                alert('Something went wrong, Try Again');
+        </script>
+        {% endif %}
+    </div>
+
+
+
+
+

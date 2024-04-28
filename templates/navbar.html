@@ -4,7 +4,7 @@
 <header class="header header--loggedIn">
     <div class="container">
       <a href="{% url 'home' %}" class="header__logo">
-        <img src="{% static 'images/logo.svg' %}" />
+        <img src="{% static 'media/logo.png' %}" />
         <h1>StudyBuddy</h1>
       </a>
 
@@ -36,7 +36,7 @@
           <a href="{% url 'update_user' %}"> 
             <!-- "{% url 'update_user' %}"> -->
             <div class="avatar avatar--medium active">
-              <img src="{{ request.user.avatar.url }}" />
+              <img src="{{ prof.avatar.url }}" />
             </div>
             <p>{{ request.user.username }} <span>@{{ request.user.username }}</span></p>
           </a>
@@ -51,7 +51,7 @@
 
          <!-- Not Logged In -->
         <a href="{% url 'login' %}">
-          <img src="{% static 'images/avatar.svg' %}"/>
+          <img src="{% static 'media/avatar.svg' %}"/>
           <p>Login</p>
         </a>
 

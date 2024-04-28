@@ -67,3 +67,44 @@ if (photoInput)
 // Scroll to Bottom
 const conversationThread = document.querySelector(".room__box");
 if (conversationThread) conversationThread.scrollTop = conversationThread.scrollHeight;
+// Function to fetch and replace content
+function fetchAndReplaceContent(url) {
+  fetch(url)
+    .then(response => response.text())
+    .then(data => {
+      // Replace the content of the page with the response from the server
+      document.body.innerHTML = data;
+      // Reattach event listeners to the buttons
+      attachEventListeners();
+      // Update the URL in the browser address bar
+      history.pushState(null, null, url);
+    })
+    .catch(error => console.error(error));
+}
+
+// Function to attach event listeners to buttons
+function attachEventListeners() {
+  document.getElementById('courseButton').addEventListener('click', function() {
+    fetchAndReplaceContent('/chatroom/');
+  });
+
+  document.getElementById('dashButton').addEventListener('click', function() {
+    fetchAndReplaceContent('/');
+  });
+
+  document.getElementById('addNotes').addEventListener('click', function() {
+    // console.log("I'm Clicjed")
+    fetchAndReplaceContent('/addNotes/');
+  });
+
+  document.getElementById('viewNotes').addEventListener('click', function() {
+    fetchAndReplaceContent('/viewNotes/');
+  });
+}
+
+// Attach initial event listeners
+attachEventListeners();
+
+
+
+

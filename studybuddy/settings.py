@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'channels', # channels
+    'daphne',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -43,7 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',# rest framework
 
     'corsheaders', #cors
-
+   
 ]
 
 MIDDLEWARE = [
@@ -79,7 +81,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "studybuddy.wsgi.application"
-
+ASGI_APPLICATION = "studybuddy.asgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
